@@ -1,9 +1,11 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-//require 'vendor/autoload.php';
 
-use Alice\Animeland\HelloWorld;
+use Alice\Animeland\Controller\HomeController;
 
-$hello = new HelloWorld();
-echo $hello->sayHello();
+$controller = new HomeController();
+$controller->index();
+
+
+
