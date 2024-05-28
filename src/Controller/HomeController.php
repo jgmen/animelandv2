@@ -8,7 +8,6 @@ class HomeController {
   public function index() {
     $model = new HelloWorld();
     $message = $model->getMessage();
-
     require __DIR__ . '/../View/Home.php';
   }
 }
