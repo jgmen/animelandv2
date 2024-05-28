@@ -1,0 +1,16 @@
+{
+    "name": "alice/animeland",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Alice\\Animeland\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joaogmendes",
+            "email": "jonathammises@proton.me"
+        }
+    ],
+    "require": {}
+}
