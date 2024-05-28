@@ -6,10 +6,17 @@ services:
     container_name: php_container
     volumes:
       - .:/var/www/html
-    environment:
-      - APP_ENV=local
     networks:
       - app-network
+    environment:
+      - APP_ENV=local
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=animeland
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+
   nginx:
     image: nginx:alpine
     container_name: nginx_container
@@ -22,7 +29,23 @@ services:
       - php
     networks:
       - app-network
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: animeland
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+
