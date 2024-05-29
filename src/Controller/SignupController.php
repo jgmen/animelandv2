@@ -1,8 +1,8 @@
 <?php
 namespace Alice\Animeland\Controller;
 
-class FormController {
+class SignupController {
   public function index() {
-     require __DIR__ . '/../View/Form.php';
+     require __DIR__ . '/../View/Signup.php';
   }
 }
