@@ -50,17 +50,17 @@ $smt->exec($sql);
 
 // Anime Table inserts
 
-$sql = "INSERT INTO anime (title, description, release_date, studio, age_rating, status, cover_url, trailer_url) VALUES
-('Naruto', 'A young ninja strives to be the best in his village.', '2002-10-03', 'Studio Pierrot', 12, 'Completed', 'https://example.com/naruto-cover.jpg', 'https://example.com/naruto-trailer.mp4'),
-('Attack on Titan', 'Humans fight for survival against giant humanoid Titans.', '2013-04-06', 'Wit Studio', 16, 'Ongoing', 'https://example.com/aot-cover.jpg', 'https://example.com/aot-trailer.mp4'),
-('My Hero Academia', 'A boy born without superpowers in a world where they are common.', '2016-04-03', 'Bones', 13, 'Ongoing', 'https://example.com/mha-cover.jpg', 'https://example.com/mha-trailer.mp4'),
-('One Piece', 'A pirate''s journey to find the greatest treasure.', '1999-10-20', 'Toei Animation', 12, 'Ongoing', 'https://example.com/onepiece-cover.jpg', 'https://example.com/onepiece-trailer.mp4'),
-('Death Note', 'A high school student discovers a notebook that kills anyone whose name is written in it.', '2006-10-04', 'Madhouse', 16, 'Completed', 'https://example.com/deathnote-cover.jpg', 'https://example.com/deathnote-trailer.mp4'),
-('Demon Slayer', 'A brother and sister fight demons after their family is slaughtered.', '2019-04-06', 'ufotable', 15, 'Ongoing', 'https://example.com/demonslayer-cover.jpg', 'https://example.com/demonslayer-trailer.mp4'),
-('Fullmetal Alchemist: Brotherhood', 'Two brothers use alchemy in search of a way to restore their bodies.', '2009-04-05', 'Bones', 13, 'Completed', 'https://example.com/fma-cover.jpg', 'https://example.com/fma-trailer.mp4'),
-('Sword Art Online', 'Players are trapped in a virtual reality MMORPG where dying in the game means dying in real life.', '2012-07-08', 'A-1 Pictures', 14, 'Ongoing', 'https://example.com/sao-cover.jpg', 'https://example.com/sao-trailer.mp4'),
-('Tokyo Ghoul', 'A college student becomes a half-ghoul after a near-fatal encounter.', '2014-07-04', 'Pierrot', 17, 'Completed', 'https://example.com/tokyoghoul-cover.jpg', 'https://example.com/tokyoghoul-trailer.mp4'),
-('One Punch Man', 'A superhero who can defeat any opponent with a single punch.', '2015-10-04', 'Madhouse', 13, 'Ongoing', 'https://example.com/onepunchman-cover.jpg', 'https://example.com/onepunchman-trailer.mp4');";
+// $sql = "INSERT INTO anime (title, description, release_date, studio, age_rating, status, cover_url, trailer_url) VALUES
+// ('Naruto', 'A young ninja strives to be the best in his village.', '2002-10-03', 'Studio Pierrot', 12, 'Completed', 'https://example.com/naruto-cover.jpg', 'https://example.com/naruto-trailer.mp4'),
+// ('Attack on Titan', 'Humans fight for survival against giant humanoid Titans.', '2013-04-06', 'Wit Studio', 16, 'Ongoing', 'https://example.com/aot-cover.jpg', 'https://example.com/aot-trailer.mp4'),
+// ('My Hero Academia', 'A boy born without superpowers in a world where they are common.', '2016-04-03', 'Bones', 13, 'Ongoing', 'https://example.com/mha-cover.jpg', 'https://example.com/mha-trailer.mp4'),
+// ('One Piece', 'A pirate''s journey to find the greatest treasure.', '1999-10-20', 'Toei Animation', 12, 'Ongoing', 'https://example.com/onepiece-cover.jpg', 'https://example.com/onepiece-trailer.mp4'),
+// ('Death Note', 'A high school student discovers a notebook that kills anyone whose name is written in it.', '2006-10-04', 'Madhouse', 16, 'Completed', 'https://example.com/deathnote-cover.jpg', 'https://example.com/deathnote-trailer.mp4'),
+// ('Demon Slayer', 'A brother and sister fight demons after their family is slaughtered.', '2019-04-06', 'ufotable', 15, 'Ongoing', 'https://example.com/demonslayer-cover.jpg', 'https://example.com/demonslayer-trailer.mp4'),
+// ('Fullmetal Alchemist: Brotherhood', 'Two brothers use alchemy in search of a way to restore their bodies.', '2009-04-05', 'Bones', 13, 'Completed', 'https://example.com/fma-cover.jpg', 'https://example.com/fma-trailer.mp4'),
+// ('Sword Art Online', 'Players are trapped in a virtual reality MMORPG where dying in the game means dying in real life.', '2012-07-08', 'A-1 Pictures', 14, 'Ongoing', 'https://example.com/sao-cover.jpg', 'https://example.com/sao-trailer.mp4'),
+// ('Tokyo Ghoul', 'A college student becomes a half-ghoul after a near-fatal encounter.', '2014-07-04', 'Pierrot', 17, 'Completed', 'https://example.com/tokyoghoul-cover.jpg', 'https://example.com/tokyoghoul-trailer.mp4'),
+// ('One Punch Man', 'A superhero who can defeat any opponent with a single punch.', '2015-10-04', 'Madhouse', 13, 'Ongoing', 'https://example.com/onepunchman-cover.jpg', 'https://example.com/onepunchman-trailer.mp4');";
 
 $smt->exec($sql);
 
