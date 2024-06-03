@@ -6,14 +6,11 @@ use Alice\Animeland\Database\Database;
 
 class SignupHandler {
 
-  private $db;
   private $stmt;
 
 
   public function __construct() {
-    $this->db = new Database();
-    $this->db->connect();
-    $this->stmt = $this->db->getConn();
+    $this->stmt = Database::getConn();
   } 
 
   public function index() { 
@@ -43,10 +40,10 @@ class SignupHandler {
 
       if ($this->stmt->execute()) {
         echo "Account created successfully!";
-        // redirect with javascript
+        // redirect
         echo '<meta http-equiv="refresh" content="2;url=/">';
       } else {
-        echo "Error: " . $this->stmt->error;
+        echo "Error: " . (int)$this->stmt->errorCode();
       }
 
     } else

@@ -2,12 +2,8 @@
 
 use Alice\Animeland\Database\Database;
 
-$connection = new Database();
-$connection->connect();
-
-
 // Users table
-$smt = $connection->getConn();
+$smt = Database::getConn();
 
 //Drop all tables
 // $sql = "DO $$ DECLARE
@@ -62,7 +58,7 @@ $smt->exec($sql);
 // ('Tokyo Ghoul', 'A college student becomes a half-ghoul after a near-fatal encounter.', '2014-07-04', 'Pierrot', 17, 'Completed', 'https://example.com/tokyoghoul-cover.jpg', 'https://example.com/tokyoghoul-trailer.mp4'),
 // ('One Punch Man', 'A superhero who can defeat any opponent with a single punch.', '2015-10-04', 'Madhouse', 13, 'Ongoing', 'https://example.com/onepunchman-cover.jpg', 'https://example.com/onepunchman-trailer.mp4');";
 
-$smt->exec($sql);
+// $smt->exec($sql);
 
 // Season Table
 $sql = "CREATE TABLE IF NOT EXISTS season (

@@ -21,9 +21,7 @@ class Authenticate {
         
         session_start();
         
-        $db = new Database();
-        $db->connect();
-        $conn = $db->getConn();
+        $conn = Database::getConn();
 
         // Compare user password
         $stmt = $conn->prepare("SELECT id, password_hash FROM users WHERE email = :email");

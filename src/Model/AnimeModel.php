@@ -8,15 +8,11 @@ use PDOException;
 
 class AnimeModel {
 
-
-  private $db;
   private PDO $conn;
   private $table = 'anime';
 
   public function __construct() {
-    $this->db = new Database();
-    $this->db->connect();
-    $this->conn = $this->db->getConn();
+    $this->conn = Database::getConn();
   }
 
   public function createAnime($title, $description, $release_date, $studio, $age_rating, $status, $cover_url, $trailer_url) {
