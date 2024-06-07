@@ -13,7 +13,7 @@ private array $routes = [];
   public function dispatch(string $requestUri, string $requestMethod) {
     foreach ($this->routes as $route) {
       if ($route->getMethod() === $requestMethod && preg_match("@^" . $route->getPath() . "$@", $requestUri, $matches)) {
-          array_shift($matches); // Remove o primeiro item que é a rota completa
+          array_shift($matches);
           return call_user_func_array($route->getCallback(), $matches);
       }
     }

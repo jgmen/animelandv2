@@ -3,7 +3,7 @@
 namespace Alice\Animeland\Core;
 
 class Route {
-  private $method;
+  public $method;
   private $path;
   private $callback;
 

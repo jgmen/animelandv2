@@ -3,12 +3,14 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Imports
+use Alice\Animeland\Core\Ralts;
 use Alice\Animeland\Core\Router;                // Routing
 use Alice\Animeland\Controller\HomeController;  // Home Controller
 use Alice\Animeland\Controller\SignupController;
 use Alice\Animeland\Form\SignupHandler;
 use Alice\Animeland\Controller\LoginController;
 use Alice\Animeland\Form\Authenticate;
+use Alice\Animeland\Controller\TestRouter;
 
 // Migration
 require '../src/Migration.php';
@@ -37,5 +39,16 @@ $router->add('POST', '/login', fn() => $autenticationHandler->index());
 $requestUri = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-$router->dispatch($requestUri, $requestMethod);
+//$router->dispatch($requestUri, $requestMethod);
+
+
+// NEW ROTER TESTS
+
+//Ralts::get('/teste', fn() => $homeController->index());
+//Ralts::get('/teste/(:num)', fn($id) => TestRouter::index($id));
+
+
+Ralts::dispatch();
+
+
 
