@@ -7,7 +7,7 @@ use PDO;
 use PDOException;
 
 class Authenticate {
-  public function index() {
+  public static function index() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
       $password = htmlspecialchars($_POST['password']);

@@ -6,7 +6,7 @@ use Alice\Animeland\Form\Auth;
 use Alice\Animeland\Model\AnimeModel;
 
 class HomeController {
-  public function index() {
+  public static function index() {
     Auth::requireAuth();
 
 
