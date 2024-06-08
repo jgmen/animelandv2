@@ -7,7 +7,7 @@ use Alice\Animeland\Model\AnimeModel;
 
 class HomeController {
   public static function index() {
-    Auth::requireAuth();
+    //Auth::requireAuth();
 
 
     $animeModel = new AnimeModel();

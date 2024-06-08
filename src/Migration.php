@@ -31,13 +31,19 @@ $smt->exec($sql);
 
 // Anime Table
 $sql = "CREATE TABLE IF NOT EXISTS anime (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(100) NOT NULL,
+  mal_id INTEGER PRIMARY KEY,
+  title_english VARCHAR(100) NOT NULL,
+  title_japanese VARCHAR(200) NOT NULL,
   description TEXT,
-  release_date DATE,
+  episodes INTEGER NOT NULL,
+  duration VARCHAR(50),
+  year INTEGER,
+  rating VARCHAR(20),
   studio VARCHAR(50),
-  age_rating INTEGER CHECK (age_rating BETWEEN 0 AND 18),
+  score INTEGER NOT NULL,
+  season VARCHAR(20),
   status VARCHAR(20),
+  type VARCHAR(20),
   cover_url VARCHAR(200),
   trailer_url VARCHAR(200)
 )";
@@ -60,18 +66,18 @@ $smt->exec($sql);
 
 // $smt->exec($sql);
 
-// Season Table
-$sql = "CREATE TABLE IF NOT EXISTS season (
-  id SERIAL PRIMARY KEY,
-  season_number INTEGER NOT NULL,
-  title VARCHAR(100),
-  description TEXT,
-  release_date DATE,
-  id_anime INTEGER NOT NULL,
-  FOREIGN KEY (id_anime) REFERENCES anime(id)
-)";
+// // Season Table
+// $sql = "CREATE TABLE IF NOT EXISTS season (
+//   id SERIAL PRIMARY KEY,
+//   season_number INTEGER NOT NULL,
+//   title VARCHAR(100),
+//   description TEXT,
+//   release_date DATE,
+//   id_anime INTEGER NOT NULL,
+//   FOREIGN KEY (id_anime) REFERENCES anime(id)
+// )";
 
-$smt->exec($sql);
+// $smt->exec($sql);
 
 // Epsisode Table
 $sql = "CREATE TABLE IF NOT EXISTS episode (
@@ -80,8 +86,8 @@ $sql = "CREATE TABLE IF NOT EXISTS episode (
   title VARCHAR(100),
   description TEXT,
   release_date DATE,
-  id_season INTEGER NOT NULL,
-  FOREIGN KEY (id_season) REFERENCES season(id)
+  mal_id INTEGER NOT NULL,
+  FOREIGN KEY (mal_id) REFERENCES anime(mal_id)
 )";
 
 $smt->exec($sql);

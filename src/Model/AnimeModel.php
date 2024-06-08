@@ -76,9 +76,5 @@ class AnimeModel {
       echo "error: $e";
     }
   }
-
-  public static function teste() {
-    echo "teste";
-  }
 }
 
