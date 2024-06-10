@@ -1,6 +1,7 @@
 <?php
 
 use Alice\Animeland\Database\Database;
+use Alice\Animeland\Model\AnimeModel;
 
 // Users table
 $smt = Database::getConn();
@@ -17,8 +18,7 @@ $smt = Database::getConn();
 
 //     PERFORM 'SET session_replication_role = DEFAULT';
 // END $$;";
-
-// $smt->query($sql);
+//$smt->query($sql);
 
 
 $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -32,52 +32,26 @@ $smt->exec($sql);
 // Anime Table
 $sql = "CREATE TABLE IF NOT EXISTS anime (
   mal_id INTEGER PRIMARY KEY,
-  title_english VARCHAR(100) NOT NULL,
+  url VARCHAR(100), 
+  title VARCHAR(100) NOT NULL,
   title_japanese VARCHAR(200) NOT NULL,
-  description TEXT,
+  synopsis TEXT,
   episodes INTEGER NOT NULL,
-  duration VARCHAR(50),
-  year INTEGER,
-  rating VARCHAR(20),
-  studio VARCHAR(50),
-  score INTEGER NOT NULL,
-  season VARCHAR(20),
-  status VARCHAR(20),
+  duration VARCHAR(100) NOT NULL,
+  airing BOOLEAN NOT NULL,
+  year INTEGER NOT NULL,
+  rating VARCHAR(20) NOT NULL,
+  score NUMERIC NOT NULL,
+  season VARCHAR(20) NOT NULL,
+  status VARCHAR(20) NOT NULL,
+  studios JSONB,
+  images JSONB,
   type VARCHAR(20),
   cover_url VARCHAR(200),
   trailer_url VARCHAR(200)
 )";
 
 $smt->exec($sql);
-
-// Anime Table inserts
-
-// $sql = "INSERT INTO anime (title, description, release_date, studio, age_rating, status, cover_url, trailer_url) VALUES
-// ('Naruto', 'A young ninja strives to be the best in his village.', '2002-10-03', 'Studio Pierrot', 12, 'Completed', 'https://example.com/naruto-cover.jpg', 'https://example.com/naruto-trailer.mp4'),
-// ('Attack on Titan', 'Humans fight for survival against giant humanoid Titans.', '2013-04-06', 'Wit Studio', 16, 'Ongoing', 'https://example.com/aot-cover.jpg', 'https://example.com/aot-trailer.mp4'),
-// ('My Hero Academia', 'A boy born without superpowers in a world where they are common.', '2016-04-03', 'Bones', 13, 'Ongoing', 'https://example.com/mha-cover.jpg', 'https://example.com/mha-trailer.mp4'),
-// ('One Piece', 'A pirate''s journey to find the greatest treasure.', '1999-10-20', 'Toei Animation', 12, 'Ongoing', 'https://example.com/onepiece-cover.jpg', 'https://example.com/onepiece-trailer.mp4'),
-// ('Death Note', 'A high school student discovers a notebook that kills anyone whose name is written in it.', '2006-10-04', 'Madhouse', 16, 'Completed', 'https://example.com/deathnote-cover.jpg', 'https://example.com/deathnote-trailer.mp4'),
-// ('Demon Slayer', 'A brother and sister fight demons after their family is slaughtered.', '2019-04-06', 'ufotable', 15, 'Ongoing', 'https://example.com/demonslayer-cover.jpg', 'https://example.com/demonslayer-trailer.mp4'),
-// ('Fullmetal Alchemist: Brotherhood', 'Two brothers use alchemy in search of a way to restore their bodies.', '2009-04-05', 'Bones', 13, 'Completed', 'https://example.com/fma-cover.jpg', 'https://example.com/fma-trailer.mp4'),
-// ('Sword Art Online', 'Players are trapped in a virtual reality MMORPG where dying in the game means dying in real life.', '2012-07-08', 'A-1 Pictures', 14, 'Ongoing', 'https://example.com/sao-cover.jpg', 'https://example.com/sao-trailer.mp4'),
-// ('Tokyo Ghoul', 'A college student becomes a half-ghoul after a near-fatal encounter.', '2014-07-04', 'Pierrot', 17, 'Completed', 'https://example.com/tokyoghoul-cover.jpg', 'https://example.com/tokyoghoul-trailer.mp4'),
-// ('One Punch Man', 'A superhero who can defeat any opponent with a single punch.', '2015-10-04', 'Madhouse', 13, 'Ongoing', 'https://example.com/onepunchman-cover.jpg', 'https://example.com/onepunchman-trailer.mp4');";
-
-// $smt->exec($sql);
-
-// // Season Table
-// $sql = "CREATE TABLE IF NOT EXISTS season (
-//   id SERIAL PRIMARY KEY,
-//   season_number INTEGER NOT NULL,
-//   title VARCHAR(100),
-//   description TEXT,
-//   release_date DATE,
-//   id_anime INTEGER NOT NULL,
-//   FOREIGN KEY (id_anime) REFERENCES anime(id)
-// )";
-
-// $smt->exec($sql);
 
 // Epsisode Table
 $sql = "CREATE TABLE IF NOT EXISTS episode (
@@ -92,3 +66,11 @@ $sql = "CREATE TABLE IF NOT EXISTS episode (
 
 $smt->exec($sql);
 
+// $sql = <<<EOD
+// INSERT INTO anime (mal_id, url, title, title_japanese, synopsis, episodes, duration, airing, year, rating, studios, score, season, status, images, type, cover_url, trailer_url)
+// VALUES (9181, 'https://myanimelist.net/anime/9181/Motto_To_LOVE-Ru', 'Motto To LOVE-Ru', 'もっと To LOVEる -とらぶる-', 'Rito Yuuki never gets a break—he''s always finding himself in lewd accidents with girls around him. Although his heart still yearns for Haruna, his childhood love, Rito can''t help but question his feelings for Lala, the alien princess who appeared in front of him and declared she would marry him. But now, it''s not just Lala he has to deal with: her younger twin sisters, Momo and Nana, have also traveled to Earth, wanting to meet their older sister''s fiancé, and just as luck would have it, they end up staying at Rito''s home.
+// Meanwhile, amidst the bustle of his new family members, Yami, the human weapon girl, begins her pursuit for Rito. It''s not an easy life for Rito as he deals with uncertain love, punishment for being a pervert, and a girl dead set on murdering him.
+// [Written by MAL Rewrite]', 12, '24 min per ep', false, 2010, 'R+ - Mild Nudity', '["Geneon Universal Entertainment", "TBS", "Magic Capsule", "PRA"]', 7.27, 'fall', 'Finished Airing', '{"jpg": {"image_url": "https://cdn.myanimelist.net/images/anime/4/59875.jpg", "small_image_url": "https://cdn.myanimelist.net/images/anime/4/59875t.jpg", "large_image_url": "https://cdn.myanimelist.net/images/anime/4/59875l.jpg"}, "webp": {"image_url": "https://cdn.myanimelist.net/images/anime/4/59875.webp", "small_image_url": "https://cdn.myanimelist.net/images/anime/4/59875t.webp", "large_image_url": "https://cdn.myanimelist.net/images/anime/4/59875l.webp"}}', 'TV', 'https://cdn.myanimelist.net/images/anime/4/59875l.jpg', 'https://www.youtube.com/watch?v=TZlnXHWCnsE');
+// EOD;
+
+// $smt->exec($sql);
