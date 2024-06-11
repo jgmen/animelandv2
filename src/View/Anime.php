@@ -23,7 +23,6 @@ $episodes = getEpisodes($anime['episodes']);
 
 
 $content = <<<EOD
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="container card p-6">
   <div class="columns">
     <div class="column">

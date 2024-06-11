@@ -4,7 +4,6 @@ if (!isset($content)) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,7 @@ if (!isset($content)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <title>Animeland</title>
 </head>
 <body>
@@ -23,11 +23,7 @@ if (!isset($content)) {
     </nav>
   </header>
 
-  <main class="container">
-    <div class="p-4">
       <?php echo $content; ?>
-    </div>
-  </main>
 
   <footer class="footer">
     <nav> 
