@@ -14,17 +14,16 @@ class EpisodeModel {
     $this->conn = Database::getConn();
   }
 
-  public function createEpisode($mal_id, $episodeNumber, $duration, $title, $synopsis, $aired, $anime_id) {
+  public function createEpisode($episodeNumber, $duration, $title, $synopsis, $aired, $anime_id) {
     try {
 
       $query = 'INSERT INTO ' . $this->table .
-      ' (mal_id , episode_number , duration, title, synopsis, aired ,anime_id )'.
-      ' VALUES(:mal_id, :episode_number, :duration, :title, :synopsis, :aired, :anime_id)';
+      ' (episode_number , duration, title, synopsis, aired ,anime_id )'.
+      ' VALUES(:episode_number, :duration, :title, :synopsis, :aired, :anime_id)';
 
       $stmt = $this->conn->prepare($query);
 
        // Clean Data
-      $mal_id = htmlspecialchars(strip_tags($mal_id));
       $episodeNumber = htmlspecialchars(strip_tags($episodeNumber));
       $duration = htmlspecialchars(strip_tags($duration));
       $title = htmlspecialchars(strip_tags($title));
@@ -33,7 +32,6 @@ class EpisodeModel {
       $anime_id = htmlspecialchars(strip_tags($anime_id));
 
       // Bind Parameters
-      $stmt->bindParam(':mal_id', $mal_id);
       $stmt->bindParam(':episode_number', $episodeNumber);
       $stmt->bindParam(':duration', $duration);
       $stmt->bindParam(':title', $title);

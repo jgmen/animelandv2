@@ -7,3 +7,4 @@ require '../src/Migration.php';
 
 // Routes
 require '../src/Controller/Controller.php';
+

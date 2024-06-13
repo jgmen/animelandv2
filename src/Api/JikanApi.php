@@ -47,4 +47,8 @@ class JikanApi {
   public function getAnimeEpisodes(int $id) {
     return $this->getRequest("anime/$id/episodes");
   }
+
+  public function getAnimeEpisodeById(int $id, int $episode) {
+    return $this->getRequest("anime/$id/episodes/$episode");
+  }
 }
