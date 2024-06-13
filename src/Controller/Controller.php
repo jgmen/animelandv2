@@ -2,26 +2,28 @@
 
 namespace Alice\Animeland\Controller;
 
-use Alice\Animeland\Core\Ralts;
 use Alice\Animeland\Controller\HomeController;
 use Alice\Animeland\Controller\SignupController;
+use Alice\Animeland\Controller\EpisodeController;
 use Alice\Animeland\Form\SignupHandler;
 use Alice\Animeland\Controller\LoginController;
 use Alice\Animeland\Form\Authenticate;
 use Alice\Animeland\Controller\TestRouter;
 use Alice\Animeland\Controller\AdminController;
 use Alice\Animeland\Form\Anime;
+use Alice\Animeland\Core\Macaw;
 
-Ralts::get('/anime', fn() => HomeController::index());
-Ralts::get('/anime/(:num)', fn($id) => TestRouter::index($id));
-Ralts::get('/signup', fn() => SignupController::index());
-Ralts::get('/login', fn() => LoginController::index());
-Ralts::get('/teste/(:num)', fn($id) => TestRouter::index($id));
-Ralts::get('/admin/dashboard', fn() => AdminController::index());
+Macaw::get('/anime', fn() => HomeController::index());
+Macaw::get('/anime/(:num)', fn($id) => TestRouter::index($id));
+Macaw::get('/anime/(:num)/(:num)', fn($id, $ep) =>  EpisodeController::index($id, $ep));
+Macaw::get('/signup', fn() => SignupController::index());
+Macaw::get('/login', fn() => LoginController::index());
+Macaw::get('/teste/(:num)', fn($id) => TestRouter::index($id));
+Macaw::get('/admin/dashboard', fn() => AdminController::index());
 
 // Form Handles
-Ralts::post('/signup', fn() => SignupHandler::index());
-Ralts::post('/login', fn() => Authenticate::index());
-Ralts::post('/anime', fn () => Anime::index());
+Macaw::post('/signup', fn() => SignupHandler::index());
+Macaw::post('/login', fn() => Authenticate::index());
+Macaw::post('/anime', fn () => Anime::index());
 
-Ralts::dispatch();
+Macaw::dispatch();
