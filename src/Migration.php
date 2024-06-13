@@ -56,13 +56,14 @@ $smt->exec($sql);
 
 // Epsisode Table
 $sql = "CREATE TABLE IF NOT EXISTS episode (
-  id SERIAL PRIMARY KEY,
+  mal_id INTEGER PRIMARY KEY,
   episode_number INTEGER NOT NULL,
-  title VARCHAR(100),
-  description TEXT,
-  release_date DATE,
-  mal_id INTEGER NOT NULL,
-  FOREIGN KEY (mal_id) REFERENCES anime(mal_id)
+  duration SMALLINT,
+  title VARCHAR(150),
+  synopsis TEXT,
+  aired DATE,
+  anime_id INTEGER NOT NULL,
+  FOREIGN KEY (anime_id) REFERENCES anime(mal_id)
 )";
 
 $smt->exec($sql);
