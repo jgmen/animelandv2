@@ -53,7 +53,6 @@ function getAnimeById(id) {
       duration.value = data.duration;
       //Airing
       data.airing == true ?  airing.checked = true :  airing.checked = false;
-      console.log(airing.checked);
 
       year.value = data.year;
       rating.value = data.rating;
@@ -66,8 +65,6 @@ function getAnimeById(id) {
       coverUrl.value = data.images.webp.image_url;
       trailerUrl.value =  data.trailer.embed_url;
       genres.value = JSON.stringify(data.genres);
-      
-      console.log(data);
     })
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);

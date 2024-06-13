@@ -18,7 +18,7 @@ if (!isset($content)) {
   <header class="navbar">
 <nav class="p-5">
       <h1 class="title"> 
-        <a href="/">Animeland</a>
+        <a href="/anime">Animeland</a>
       </h1>
     </nav>
   </header>

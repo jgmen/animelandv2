@@ -15,12 +15,11 @@ class AnimeModel {
     $this->conn = Database::getConn();
   }
 
-  public function createAnime($mal_id, $url, $title, $title_japanese, $synopsis, $episodes, $duration, $airing, $year, $rating, $studio, $score, $season, $status, $studios, $images, $type, $cover_url, $trailer_url) {
-
+  public function createAnime($mal_id, $url, $title, $title_japanese, $synopsis, $episodes, $duration, $airing, $year, $rating, $score, $season, $status, $studios, $images, $type, $cover_url, $trailer_url, $genres) {
     try {
       $query = 'INSERT INTO ' . $this->table .
-      ' (mal_id, url, title, title_japanese, synopsis, episodes, duration, airing, year, rating, studio, score, season, status, studios, images, type, cover_url, trailer_url)' .
-      ' VALUES (:mal_id, :url, :title, :title_japanese, :synopsis, :episodes, :duration, :airing, :year, :rating, :studio, :score, :season, :status, :studios, :images, :type, :cover_url, :trailer_url)';
+      ' (mal_id, url, title, title_japanese, synopsis, episodes, duration, airing, year, rating, score, season, status, studios, images, type, cover_url, trailer_url, genres)' .
+      ' VALUES (:mal_id, :url, :title, :title_japanese, :synopsis, :episodes, :duration, :airing, :year, :rating, :score, :season, :status, :studios, :images, :type, :cover_url, :trailer_url, :genres)';
       
       $stmt = $this->conn->prepare($query);
 
@@ -32,39 +31,39 @@ class AnimeModel {
       $synopsis = htmlspecialchars(strip_tags($synopsis));
       $episodes = htmlspecialchars(strip_tags($episodes));
       $duration = htmlspecialchars(strip_tags($duration));
-      $airing = htmlspecialchars(strip_tags($airing));
+      $airing = filter_var($airing, FILTER_VALIDATE_BOOLEAN);
       $year = htmlspecialchars(strip_tags($year));
       $rating = htmlspecialchars(strip_tags($rating));
-      $studio = htmlspecialchars(strip_tags($studio));
       $score = htmlspecialchars(strip_tags($score));
       $season = htmlspecialchars(strip_tags($season));
       $status = htmlspecialchars(strip_tags($status));
-      $studios = htmlspecialchars(strip_tags($studios));
-      $images = htmlspecialchars(strip_tags($images));
+      $studios = json_encode($studios);
+      $images = json_encode($images);
       $type = htmlspecialchars(strip_tags($type));
       $cover_url = htmlspecialchars(strip_tags($cover_url));
       $trailer_url = htmlspecialchars(strip_tags($trailer_url));
+      $genres = json_encode($genres);
 
       // Bind
-      $stmt->bindParam(':mal_id', $mal_id);
-      $stmt->bindParam(':url', $url);
-      $stmt->bindParam(':title', $title);
-      $stmt->bindParam(':title_japanese', $title_japanese);
-      $stmt->bindParam(':synopsis', $synopsis);
-      $stmt->bindParam(':episodes', $episodes);
-      $stmt->bindParam(':duration', $duration);
+      $stmt->bindParam(':mal_id', $mal_id, PDO::PARAM_INT);
+      $stmt->bindParam(':url', $url, PDO::PARAM_STR);
+      $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+      $stmt->bindParam(':title_japanese', $title_japanese, PDO::PARAM_STR);
+      $stmt->bindParam(':synopsis', $synopsis, PDO::PARAM_STR);
+      $stmt->bindParam(':episodes', $episodes, PDO::PARAM_INT);
+      $stmt->bindParam(':duration', $duration, PDO::PARAM_STR);
       $stmt->bindParam(':airing', $airing, PDO::PARAM_BOOL);
-      $stmt->bindParam(':year', $year);
-      $stmt->bindParam(':rating', $rating);
-      $stmt->bindParam(':studio', $studio);
-      $stmt->bindParam(':score', $score);
-      $stmt->bindParam(':season', $season);
-      $stmt->bindParam(':status', $status);
+      $stmt->bindParam(':year', $year, PDO::PARAM_INT);
+      $stmt->bindParam(':rating', $rating, PDO::PARAM_STR);
+      $stmt->bindParam(':score', $score, PDO::PARAM_STR);
+      $stmt->bindParam(':season', $season, PDO::PARAM_STR);
+      $stmt->bindParam(':status', $status, PDO::PARAM_STR);
       $stmt->bindParam(':studios', $studios, PDO::PARAM_STR);
       $stmt->bindParam(':images', $images, PDO::PARAM_STR);
-      $stmt->bindParam(':type', $type);
-      $stmt->bindParam(':cover_url', $cover_url);
-      $stmt->bindParam(':trailer_url', $trailer_url);
+      $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+      $stmt->bindParam(':cover_url', $cover_url, PDO::PARAM_STR);
+      $stmt->bindParam(':trailer_url', $trailer_url, PDO::PARAM_STR);
+      $stmt->bindParam(':genres', $genres, PDO::PARAM_STR);
 
       if($stmt->execute())
         return true;

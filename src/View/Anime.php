@@ -1,8 +1,8 @@
 <?php
 
-function getTags(array $genres) {
+function getTags($genres) {
   $a = [];
-  foreach ($genres as $g) {
+  foreach (json_decode($genres) as $g) {
     $string = '<a href="#">#' . $g->name . '</a>';
     array_push($a, $string);
   }
@@ -18,7 +18,8 @@ function getEpisodes(int $episodesNum) {
   return implode(' ', $a);
 }
 
-$tags = getTags(json_decode($anime['genres']));
+$tags = getTags(json_decode($anime['genres']), 1);
+
 $episodes = getEpisodes($anime['episodes']);
 
 

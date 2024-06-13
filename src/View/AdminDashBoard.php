@@ -36,7 +36,7 @@ $content = <<<EOD
 
 
 
- <div class="container box p-6" id="confirm-anime">
+  <form class="container box p-6" id="confirm-anime" hx-post="/anime"  hx-swap="innerHTML" >
     
     <h1 class="title"> <i class="fas fa-plus-square"></i> Import a New Anime</h1>
 
@@ -93,11 +93,11 @@ $content = <<<EOD
       <div class="control">
          <label class="label">Airing</label>
         <label class="radio">
-          <input type="radio" name="answer" />
+          <input type="radio" name="answer" value="true" />
           Yes
         </label>
         <label class="radio">
-          <input type="radio" name="answer" />
+          <input type="radio" name="answer" value="false"/>
           No
         </label>
       </div>
@@ -182,10 +182,13 @@ $content = <<<EOD
 
     <div class="field">
       <div class="control">
-        <button class="button is-link">Import</button>
+        <button class="button is-link" type="submit">
+          Import
+        </button>
+        <div id="search-results"></div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
 
 
