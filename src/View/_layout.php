@@ -15,12 +15,34 @@ if (!isset($content)) {
   <title>Animeland</title>
 </head>
 <body>
-  <header class="navbar">
-<nav class="p-5">
-      <h1 class="title"> 
-        <a href="/anime">Animeland</a>
-      </h1>
+
+
+  <header class="navbar hero">
+    <nav class="p-6 is-flex is-justify-content-space-between">
+      <div> 
+        <a href="/anime"><img style="width: 13rem;" src="https://i.ibb.co/9n6yYhm/white.png" alt="white" border="0"></a>
+      </div>
+
+    <div class="is-flex">
+      <div class="bd-nav-search mx-6">
+        <button class="bd-nav-item is-search-desktop is-icon js-burger is-active" data-target="js-search">
+          <span class="icon">
+            <i class="fas fa-search fa-lg"></i>
+          </span>
+        </button>
+      </div>
+
+     <div class="mr-6">
+        <button class="bd-nav-item is-search-desktop is-icon js-burger is-active">
+          <span class="icon">
+            <i class="fas fa-user fa-lg"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+
     </nav>
+
   </header>
 
       <?php echo $content; ?>

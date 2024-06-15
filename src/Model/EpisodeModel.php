@@ -27,7 +27,7 @@ class EpisodeModel {
       $episodeNumber = htmlspecialchars(strip_tags($episodeNumber));
       $duration = htmlspecialchars(strip_tags($duration));
       $title = htmlspecialchars(strip_tags($title));
-      $synopsis = htmlspecialchars(strip_tags($synopsis));
+      $synopsis = htmlspecialchars($synopsis);
       $aired = htmlspecialchars(strip_tags($aired));
       $anime_id = htmlspecialchars(strip_tags($anime_id));
 
@@ -52,10 +52,23 @@ class EpisodeModel {
 
   public function getAllByAnimeId($animeId) {
     try {
-      $query = 'SELECT * FROM ' . $this->table . ' WHERE anime_id == ' . $animeId;
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE anime_id = ' . $animeId;
       $stmt = $this->conn->prepare($query);
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+      echo $e;
+    }
+  }
+
+  public function getAnimeEpisodeById($animeId, $episode) {
+    try {
+      $query = 'SELECT * FROM ' . $this->table . ' WHERE anime_id = :anime_id AND episode_number = :episode_number';
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(':anime_id', $animeId, PDO::PARAM_INT);
+      $stmt->bindParam(':episode_number', $episode, PDO::PARAM_INT);
+      $stmt->execute();
+      return $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
       echo $e;
     }

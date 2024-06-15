@@ -9,10 +9,10 @@ function getTags($genres) {
   return implode(' ', $a);
 }
 
-function getEpisodes(int $episodesNum) {
+function getEpisodes(int $episodesNum, int $mal_id) {
   $a = [];
   for ($i=1; $i <= $episodesNum; $i++) {
-    $string = '<tr>' . "<th>$i</th>" . "<td>Episodeo: $i</td>" . '</tr>';
+    $string = "<tr><th>$i</th><td><a href='/anime/$mal_id/$i'>Episode $i</a></td></tr>";
     array_push($a, $string);
   }
   return implode(' ', $a);
@@ -20,7 +20,7 @@ function getEpisodes(int $episodesNum) {
 
 $tags = getTags(json_decode($anime['genres']), 1);
 
-$episodes = getEpisodes($anime['episodes']);
+$episodes = getEpisodes($anime['episodes'], $anime['mal_id']);
 
 
 $content = <<<EOD
@@ -68,7 +68,7 @@ $content = <<<EOD
     </div>
   </div>
   <table class="table">
-    <tbody>     
+    <tbody>
       $episodes
     </tbody>
   </table>

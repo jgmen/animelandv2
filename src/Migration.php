@@ -67,11 +67,3 @@ $sql = "CREATE TABLE IF NOT EXISTS episode (
 )";
 
 $smt->exec($sql);
-
-// $sql = <<<EOD
-// INSERT INTO anime (mal_id, url, title, title_japanese, synopsis, episodes, duration, airing, year, rating, studios, score, season, status, images, type, cover_url, trailer_url, genres)
-// VALUES (9181, 'https://myanimelist.net/anime/9181/Motto_To_LOVE-Ru', 'Motto To LOVE-Ru', 'もっと To LOVEる -とらぶる-', 'Rito Yuuki never gets a break—he''s always finding himself in lewd accidents with girls around him. Although his heart still yearns for Haruna, his childhood love, Rito can''t help but question his feelings for Lala, the alien princess who appeared in front of him and declared she would marry him. But now, it''s not just Lala he has to deal with: her younger twin sisters, Momo and Nana, have also traveled to Earth, wanting to meet their older sister''s fiancé, and just as luck would have it, they end up staying at Rito''s home.
-// Meanwhile, amidst the bustle of his new family members, Yami, the human weapon girl, begins her pursuit for Rito. It''s not an easy life for Rito as he deals with uncertain love, punishment for being a pervert, and a girl dead set on murdering him.
-// [Written by MAL Rewrite]', 12, '24 min per ep', false, 2010, 'R+ - Mild Nudity', '["Geneon Universal Entertainment", "TBS", "Magic Capsule", "PRA"]', 7.27, 'fall', 'Finished Airing', '{"jpg": {"image_url": "https://cdn.myanimelist.net/images/anime/4/59875.jpg", "small_image_url": "https://cdn.myanimelist.net/images/anime/4/59875t.jpg", "large_image_url": "https://cdn.myanimelist.net/images/anime/4/59875l.jpg"}, "webp": {"image_url": "https://cdn.myanimelist.net/images/anime/4/59875.webp", "small_image_url": "https://cdn.myanimelist.net/images/anime/4/59875t.webp", "large_image_url": "https://cdn.myanimelist.net/images/anime/4/59875l.webp"}}', 'TV', 'https://cdn.myanimelist.net/images/anime/4/59875l.jpg', 'https://www.youtube.com/watch?v=TZlnXHWCnsE', '[{"mal_id": 24, "type": "anime", "name": "Sci-Fi", "url": "https://myanimelist.net/anime/genre/24/Sci-Fi"}, {"mal_id": 9, "type": "anime", "name": "Ecchi", "url": "https://myanimelist.net/anime/genre/9/Ecchi"}]')
-// EOD;
-/* $smt->exec($sql); */
