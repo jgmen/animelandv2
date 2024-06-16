@@ -18,7 +18,7 @@ if (!isset($content)) {
 
 
   <header class="navbar hero">
-    <nav class="p-6 is-flex is-justify-content-space-between">
+    <nav class="p-5 is-flex is-justify-content-space-between">
       <div> 
         <a href="/anime"><img style="width: 13rem;" src="https://i.ibb.co/9n6yYhm/white.png" alt="white" border="0"></a>
       </div>

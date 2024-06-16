@@ -1,6 +1,7 @@
 <?php
 
 $content = <<<EOD
+<div class="container p-4">
 <div class="columns is-multiline is-mobile">
 
 EOD;
@@ -13,9 +14,9 @@ foreach($animes as $anime) {
  
   <div class="card">
     <div class="card-image">
-      <figure class="is-4by3">
-        <img src="$anime[cover_url]"/>
-      </figure>
+    <figure class="is-4by3">
+      <div style="background-image: url($anime[cover_url]); width: 192px; height: 287px; background-size: cover; background-position: center;"></div>
+    </figure>
     </div>
   </div>
 
@@ -33,6 +34,7 @@ EOD;
 }
 
 $content .= <<<EOD
+</div>
 </div>
 EOD;
 
