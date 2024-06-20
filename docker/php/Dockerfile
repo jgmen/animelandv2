@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-fpm
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -31,6 +31,9 @@ COPY docker/php/php.ini /usr/local/etc/php/
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Compose Install dependenci
+#RUN composer install
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000

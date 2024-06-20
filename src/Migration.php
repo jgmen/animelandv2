@@ -63,6 +63,7 @@ $sql = "CREATE TABLE IF NOT EXISTS episode (
   synopsis TEXT,
   aired DATE,
   anime_id INTEGER NOT NULL,
+  url JSONB,
   FOREIGN KEY (anime_id) REFERENCES anime(mal_id)
 )";
 

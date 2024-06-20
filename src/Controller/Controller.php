@@ -17,6 +17,7 @@ Macaw::get('/anime', fn() => HomeController::index());
 Macaw::get('/anime/(:num)', fn($id) => TestRouter::index($id));
 Macaw::get('/anime/(:num)/(:num)', fn($id, $ep) =>  EpisodeController::index($id, $ep));
 Macaw::get('/signup', fn() => SignupController::index());
+Macaw::get('/search/(:any)', fn ($search) => SearchController::index($search));
 Macaw::get('/login', fn() => LoginController::index());
 Macaw::get('/teste/(:num)', fn($id) => TestRouter::index($id));
 Macaw::get('/admin/dashboard', fn() => AdminController::index());

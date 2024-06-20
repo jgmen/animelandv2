@@ -26,9 +26,11 @@ if (!isset($content)) {
     <div class="is-flex">
       <div class="bd-nav-search mx-6">
         <button class="bd-nav-item is-search-desktop is-icon js-burger is-active" data-target="js-search">
-          <span class="icon">
-            <i class="fas fa-search fa-lg"></i>
-          </span>
+          <a href="/search/-">
+            <span class="icon">
+              <i class="fas fa-search fa-lg"></i>
+            </span>
+          </a>
         </button>
       </div>
 
