@@ -63,7 +63,7 @@ class Anime {
       }
 
 
-      if ($animeModel->createAnime($malId, $urlMal, $title, $titleJp, $synopsis, $episodes, $duration, $airing, $year, $rating,$score, $season, $status, $studios, $images, $type, $coverUrl, $trailerUrl, $genres)) {
+      if ($animeModel->createAnime($malId, $urlMal, $title, $titleJp, $synopsis, $episodes, $duration, $airing, (int) $year, $rating,$score, $season, $status, $studios, $images, $type, $coverUrl, $trailerUrl, $genres)) {
         echo "anime was created \n";
         if ($episodes !== null) {
           foreach ($animeEpisodes as $ep) {
@@ -72,10 +72,9 @@ class Anime {
             echo "<p> $info[mal_id]: $info[title] <p/>";
           }
         }
-
       }
       else
-        echo "error";
+        echo "error anime not created";
     }
   }
 }
