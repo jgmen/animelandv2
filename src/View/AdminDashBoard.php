@@ -5,19 +5,54 @@ include __DIR__ .'/css/' . basename(__FILE__);
 
 $content = <<<EOD
 
+<!-- Main menu -->
 <div class="columns p-4"> 
-
   <div class="bd-menu column is-one-fifth">
     <aside class="menu p-5">
        <p class="menu-label">General</p>
       <ul class="menu-list">
-        <li><a><i class="fas fa-plus has-text-primary"></i> New Anime</a></li>
-        <li><a><i class="fas fa-plus has-text-primary"></i> New Episode</a></li>
+        <li> <button onclick="showContent('new-anime-tab')"> <a><i class="fas fa-plus has-text-primary"></i> New Anime</a> </button></li>
+        <li> <button onclick="showContent('edit-anime-tab')"> <a><i class="fas fa-pencil-alt has-text-primary"></i> Edit Anime</a> </button> </li>
+        <li> <button onclick="showContent('edit-episode-tab')"> <a><i class="fas fa-pencil-alt has-text-primary"></i> Edit Episode</a> </button> </li>
       </ul>
     </aside>
+  </div>  
+
+
+ <div id="content" class="container box p-6" column>
+    <!-- The content will be loaded here -->
+  </div>
+  
+  <!-- Edit Episode -->
+  <div class="tab-content" id="edit-episode-tab">
+    <h1>Edit Episode</h1>
   </div>
 
-  <div class="container box p-6" id="import-anime">    
+<!-- Edit Anime -->
+  <div class="tab-content" id="edit-anime-tab">
+    <div id="edit-anime-tab-search">
+      <h1 class="title"> <i class="fas fa-plus-square"></i> Edit the information of an anime</h1>
+
+      <div class="field">
+        <label class="label">Anime id</label>
+        <div class="control">
+          <input class="input" type="text" name="imported-animeanime-id" placeholder="insert mal_id from an existing anime in database">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-link" onclick="showConfirm()">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- New Anime -->
+  <div class="tab-content" id='new-anime-tab'>
+    <div id="import-anime">
     <h1 class="title"> <i class="fas fa-plus-square"></i> Import a New Anime</h1>
 
     <div class="field">
@@ -32,12 +67,13 @@ $content = <<<EOD
         <button class="button is-link" onclick="showConfirm()">Import</button>
       </div>
     </div>
+    </div>
   </div>
 
 
-
-  <form class="container box p-6" id="confirm-anime" hx-post="/anime"  hx-swap="innerHTML" >
-    
+  <!-- New Anime: Confimation -->
+  <form class="tab-content container box p-6" id="confirm-anime" hx-post="/anime"  hx-swap="innerHTML" >
+  
     <h1 class="title"> <i class="fas fa-plus-square"></i> Import a New Anime</h1>
 
     <div class="field">
@@ -190,7 +226,6 @@ $content = <<<EOD
     </div>
   </form>
 </div>
-
 
 $js
 
