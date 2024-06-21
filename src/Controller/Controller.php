@@ -8,13 +8,13 @@ use Alice\Animeland\Controller\EpisodeController;
 use Alice\Animeland\Form\SignupHandler;
 use Alice\Animeland\Controller\LoginController;
 use Alice\Animeland\Form\Authenticate;
-use Alice\Animeland\Controller\TestRouter;
+use Alice\Animeland\Controller\AnimeController;
 use Alice\Animeland\Controller\AdminController;
 use Alice\Animeland\Form\Anime;
 use Alice\Animeland\Core\Macaw;
 
 Macaw::get('/anime', fn() => HomeController::index());
-Macaw::get('/anime/(:num)', fn($id) => TestRouter::index($id));
+Macaw::get('/anime/(:num)', fn($id) => AnimeController::index($id));
 Macaw::get('/anime/(:num)/(:num)', fn($id, $ep) =>  EpisodeController::index($id, $ep));
 Macaw::get('/signup', fn() => SignupController::index());
 Macaw::get('/search/(:any)', fn ($search) => SearchController::index($search));

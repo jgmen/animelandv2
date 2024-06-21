@@ -2,20 +2,22 @@ FROM php:8.1-fpm
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
     zip \
     unzip \
     curl \
-    libpq-dev
+    libpq-dev \
+    g++ \
+    autoconf \
+    libicu-dev
+
 
 # Install PHP extensions
 
-
+RUN docker-php-ext-install intl 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
-#RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install pdo pdo_pgsql
 
 # Clear cache
