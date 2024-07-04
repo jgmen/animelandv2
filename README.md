@@ -48,7 +48,7 @@ Atualmente, estamos trabalhando no desenvolvimento de uma interface administrati
 
 1. Após iniciar o projeto conforme descrito na seção [Como Rodar o Projeto](#como-rodar-o-projeto), abra seu navegador e vá para:
    ```
-   http://localhost/admindashboard
+   http://localhost/admin/dashboard
    ```
 
 2. Você será redirecionado para a interface administrativa, onde poderá realizar diversas ações relacionadas aos animes, como adicionar novos títulos, editar informações existentes, e muito mais.
