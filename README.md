@@ -36,7 +36,7 @@ Para começar a contribuir, siga os passos abaixo:
 O projeto está estruturado da seguinte forma:
 
 - **php**: Serviço que hospeda a aplicação PHP, configurada para se conectar a um banco de dados PostgreSQL.
-- **nginx**: Servidor web Nginx que atua como proxy reverso para o serviço PHP e serve os arquivos estáticos.
+- **nginx**: Servidor web
 - **postgres**: Banco de dados PostgreSQL para armazenar os dados relacionados aos animes.
 - **elasticsearch**: Elasticsearch para recursos de busca avançada, como pesquisa textual.
 
@@ -52,5 +52,3 @@ Atualmente, estamos trabalhando no desenvolvimento de uma interface administrati
    ```
 
 2. Você será redirecionado para a interface administrativa, onde poderá realizar diversas ações relacionadas aos animes, como adicionar novos títulos, editar informações existentes, e muito mais.
-
-a está melhor estruturado e organizado, proporcionando uma visão clara de como começar a trabalhar com o projeto Animeland V2 e como utilizar a interface administrativa em desenvolvimento.
